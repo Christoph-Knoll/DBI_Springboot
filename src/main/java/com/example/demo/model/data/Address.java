@@ -14,14 +14,6 @@ public class Address extends EntityBase {
     @Column(name = "street_no")
     private int streetNumber;
 
-    public AddressId getId() {
-        return id;
-    }
-
-    public void setId(AddressId id) {
-        this.id = id;
-    }
-
     public String getCity() {
         return city;
     }
@@ -53,6 +45,23 @@ public class Address extends EntityBase {
     public void setStreetNumber(int streetNumber) {
         this.streetNumber = streetNumber;
     }
+
+    public int getId(){
+        return this.id.getId();
+    }
+
+    public void setId(int id){
+        this.id.setId(id);
+    }
+
+    public Person getPerson(){
+        return this.id.getPerson();
+    }
+
+    public void setPerson(Person person){
+        this.id.setPerson(person);
+    }
+
 }
 
 @Embeddable

@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import com.example.demo.model.data.Address;
+import com.example.demo.model.data.Person;
 
 public class AddressBO extends RootBO<Address>{
 
@@ -8,13 +9,23 @@ public class AddressBO extends RootBO<Address>{
         super(state);
     }
 
-    public static AddressBO createNew(String city, String country, String street, int streetNumber) {
+    public static AddressBO createNew(Integer id, PersonBO person, String city, String country, String street, int streetNumber) {
         var ad = new Address();
+        ad.setId(id);
+        ad.setPerson(person.getState());
         ad.setCity(city);
         ad.setCountry(country);
         ad.setStreet(street);
         ad.setStreetNumber(streetNumber);
         return new AddressBO(ad);
+    }
+
+    public int getId() {
+        return this.state.getId();
+    }
+
+    public Person getPerson() {
+        return this.state.getPerson();
     }
 
     public String getCity() {
@@ -26,4 +37,5 @@ public class AddressBO extends RootBO<Address>{
     public String getStreet() { return this.state.getStreet(); }
 
     public String getStreetNumber() { return this.state.getCountry(); }
+
 }

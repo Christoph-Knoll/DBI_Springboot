@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PersonDTO {
 
@@ -16,6 +18,8 @@ public class PersonDTO {
     private boolean isAwesome;
     private Double awesomeness;
     private BigDecimal wealth;
+    private List<AddressDTO> addresses = new ArrayList<>();
+
 
     public PersonDTO(@JsonProperty("SSN") String ssn, @JsonProperty("dateOfBirth") LocalDate dateOfBirth,
                      @JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName,
@@ -85,5 +89,13 @@ public class PersonDTO {
 
     public void setWealth(BigDecimal wealth) {
         this.wealth = wealth;
+    }
+
+    public List<AddressDTO> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<AddressDTO> addresses) {
+        this.addresses = addresses;
     }
 }

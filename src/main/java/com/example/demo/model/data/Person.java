@@ -81,4 +81,12 @@ public class Person extends EntityBase {
     public void setWealth(BigDecimal wealth) {
         this.wealth = wealth;
     }
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
 }

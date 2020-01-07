@@ -1,13 +1,12 @@
 package com.example.demo.service;
 
-import com.example.demo.repository.PersonRepository;
 import com.example.demo.dto.PersonDTO;
+import com.example.demo.mapper.PersonMapper;
 import com.example.demo.model.PersonBO;
-import ma.glasnost.orika.BoundMapperFacade;
+import com.example.demo.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import ma.glasnost.orika.impl.DefaultMapperFactory;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,8 +15,8 @@ import java.util.stream.Collectors;
 public class PersonService {
 
     private final PersonRepository personRepository;
-    private final BoundMapperFacade<PersonDTO, PersonBO> mapper = new DefaultMapperFactory.Builder().build()
-            .getMapperFacade(PersonDTO.class, PersonBO.class);
+    //private final BoundMapperFacade<PersonDTO, PersonBO> mapper = new DefaultMapperFactory.Builder().build()
+    //        .getMapperFacade(PersonDTO.class, PersonBO.class);
 
     @Autowired
     public PersonService(@Qualifier("personRepo") PersonRepository personRepo) {
@@ -33,6 +32,9 @@ public class PersonService {
 
     public List<PersonDTO> getAllPeople() {
         var people = personRepository.getAllPeople();
-        return people.stream().map(mapper::mapReverse).collect(Collectors.toList());
+        return people.stream().map(PersonMapper::map).collect(Collectors.toList());
     }
+
+
+
 }

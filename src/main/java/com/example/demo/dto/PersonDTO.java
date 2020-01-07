@@ -24,7 +24,7 @@ public class PersonDTO {
     public PersonDTO(@JsonProperty("SSN") String ssn, @JsonProperty("dateOfBirth") LocalDate dateOfBirth,
                      @JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName,
                      @JsonProperty("isAwesome") boolean isAwesome, @JsonProperty("awesomeness") Double awesomeness,
-                     @JsonProperty("wealth") BigDecimal wealth) {
+                     @JsonProperty("wealth") BigDecimal wealth, @JsonProperty("addresses") List<AddressDTO> addresses) {
         this.SSN = ssn;
         this.dateOfBirth = dateOfBirth;
         this.firstName = firstName;
@@ -32,8 +32,10 @@ public class PersonDTO {
         this.isAwesome = isAwesome;
         this.awesomeness = awesomeness;
         this.wealth = wealth;
+        this.addresses = addresses;
     }
     public PersonDTO(){}
+
 
     public String getSSN() {
         return SSN;

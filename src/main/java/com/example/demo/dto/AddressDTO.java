@@ -2,39 +2,36 @@ package com.example.demo.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.constraints.NotBlank;
-
 public class AddressDTO {
-    @NotBlank
-    private Short addressNo;
+    private Integer addressNo;
     private String SSN;
     private String country;
     private String city;
     private String street;
-    private Short streetNo;
+    private Integer streetNumber;
 
     public AddressDTO(){}
 
-    public AddressDTO(@JsonProperty("addressNo") Short addressNO,
+    public AddressDTO(@JsonProperty("addressNo") Integer addressNO,
                       @JsonProperty("SSN") String SSN,
                       @JsonProperty("country") String country,
                       @JsonProperty("city") String city,
                       @JsonProperty("street") String street,
-                      @JsonProperty("streetNo") Short streetNo){
+                      @JsonProperty("streetNumber") Integer streetNumber){
 
         this.addressNo = addressNO;
         this.SSN = SSN;
         this.country = country;
         this.city = city;
         this.street = street;
-        this.streetNo = streetNo;
+        this.streetNumber = streetNumber;
     }
 
-    public short getAddressNo() {
+    public Integer getAddressNo() {
         return addressNo;
     }
 
-    public void setAddressNo(short addressNo) {
+    public void setAddressNo(Integer addressNo) {
         this.addressNo = addressNo;
     }
 
@@ -62,12 +59,12 @@ public class AddressDTO {
         this.street = street;
     }
 
-    public short getStreetNo() {
-        return streetNo;
+    public Integer getStreetNumber() {
+        return streetNumber;
     }
 
-    public void setStreetNo(short streetNo) {
-        this.streetNo = streetNo;
+    public void setStreetNumber(Integer streetNumber) {
+        this.streetNumber = streetNumber;
     }
 
     public String getSSN() {

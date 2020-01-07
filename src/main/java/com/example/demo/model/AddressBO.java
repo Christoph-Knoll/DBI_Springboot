@@ -9,7 +9,7 @@ public class AddressBO extends RootBO<Address>{
         super(state);
     }
 
-    public static AddressBO createNew(Integer id, PersonBO person, String city, String country, String street, int streetNumber) {
+    public static AddressBO createNew(Integer id, PersonBO person, String city, String country, String street, Integer streetNumber) {
         var ad = new Address();
         ad.setId(id);
         ad.setPerson(person.getState());
@@ -36,6 +36,6 @@ public class AddressBO extends RootBO<Address>{
 
     public String getStreet() { return this.state.getStreet(); }
 
-    public String getStreetNumber() { return this.state.getCountry(); }
+    public Integer getStreetNumber() { return this.state.getStreetNumber(); }
 
 }

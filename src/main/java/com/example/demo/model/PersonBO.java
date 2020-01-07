@@ -63,4 +63,6 @@ public class PersonBO extends RootBO<Person>{
     public void setAddresses(List<AddressBO> addresses) {
         this.state.setAddresses(addresses.stream().map(RootBO::getState).collect(Collectors.toCollection(ArrayList::new)));
     }
+
+
 }

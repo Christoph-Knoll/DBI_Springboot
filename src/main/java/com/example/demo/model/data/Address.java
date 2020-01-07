@@ -6,7 +6,7 @@ import java.io.Serializable;
 @Entity
 public class Address extends EntityBase {
     @EmbeddedId
-    private AddressId id;
+    private AddressId id = new AddressId();
     private String city;
     private String country;
     private String street;
@@ -46,12 +46,13 @@ public class Address extends EntityBase {
         this.streetNumber = streetNumber;
     }
 
-    public int getId(){
+    public Integer getId(){
         return this.id.getId();
     }
 
-    public void setId(int id){
-        this.id.setId(id);
+    public void setId(Integer id){
+        // Needed to use Generated value
+        if (id == null) this.id.setId(id);
     }
 
     public Person getPerson(){
@@ -68,9 +69,9 @@ public class Address extends EntityBase {
 class AddressId implements Serializable {
     //region Fields
     // @Column annotation needed to tell the ORM in which column the field belongs.
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "address_no")
-    private int id;
+    private Integer id;
 
     @ManyToOne()
     @JoinColumn(name = "ssn")
@@ -87,11 +88,11 @@ class AddressId implements Serializable {
     //endregion
 
     //region Props
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -103,4 +104,5 @@ class AddressId implements Serializable {
         this.person = person;
     }
     //endregion
+
 }

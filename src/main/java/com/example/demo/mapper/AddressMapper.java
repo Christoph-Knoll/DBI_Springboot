@@ -7,8 +7,9 @@ import com.example.demo.model.PersonBO;
 public abstract class AddressMapper {
     public static AddressBO map(AddressDTO addressDTO, PersonBO personBO) {
         return AddressBO.createNew(
-                addressDTO.getAddressNo(),
-                personBO,addressDTO.getCountry(),
+                addressDTO.getId(),
+                personBO,
+                addressDTO.getCountry(),
                 addressDTO.getCity(),
                 addressDTO.getStreet(),
                 addressDTO.getStreetNumber()

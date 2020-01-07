@@ -1,5 +1,6 @@
 package com.example.demo.api;
 
+import com.example.demo.dto.AwesomePeopleCountDTO;
 import com.example.demo.dto.PersonDTO;
 import com.example.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,4 +33,12 @@ public class PersonController {
     public List<PersonDTO> getAllPeople(){
         return personService.getAllPeople();
     }
+
+    @GetMapping
+    @RequestMapping("awesomepeoplecount")
+    @Transactional(readOnly=true)
+    public List<AwesomePeopleCountDTO> getAwesomePeopleCount(){
+        return personService.getAwesomePeopleCount();
+    }
+
 }

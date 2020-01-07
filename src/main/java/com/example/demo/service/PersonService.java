@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.AddressDTO;
+import com.example.demo.dto.AwesomePeopleCountDTO;
 import com.example.demo.dto.PersonDTO;
 import com.example.demo.mapper.PersonMapper;
 import com.example.demo.model.PersonBO;
@@ -30,11 +32,30 @@ public class PersonService {
         personRepository.insertPerson(person);
     }
 
+    public void updatePerson(PersonDTO personDTO) {
+        var person = PersonMapper.map(personDTO);
+        personRepository.updatePerson(person);
+    }
+
+    public void addAddress(AddressDTO addressDTO){
+        var person = getById(addressDTO.getSSN());
+        person.getAddresses().add(addressDTO);
+        updatePerson(person);
+    }
     public List<PersonDTO> getAllPeople() {
         var people = personRepository.getAllPeople();
         return people.stream().map(PersonMapper::map).collect(Collectors.toList());
     }
 
+    public PersonDTO getById(String SSN) {
+        return PersonMapper.map(personRepository.getBySSN(SSN));
+    }
 
+    public List<AwesomePeopleCountDTO> getAwesomePeopleCount(){
+        return personRepository.getAwesomePeopleCount();
+    }
 
+    public List<String> getCities(){
+        return personRepository.getCities();
+    }
 }

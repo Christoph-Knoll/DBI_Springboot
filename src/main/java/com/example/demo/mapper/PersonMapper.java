@@ -18,7 +18,8 @@ public abstract  class PersonMapper {
         );
 
         person.setAddresses(personDTO.getAddresses().stream().map(a -> AddressMapper.map(a,person))
-        .collect(Collectors.toList()));
+                .collect(Collectors.toList()));
+
         return person;
     }
 

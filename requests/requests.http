@@ -2,3 +2,27 @@ GET localhost:8080/api/v1/person
 Accept: application/json
 
 ###
+
+GET localhost:8080/api/v1/person/awesomepeoplecount
+Accept: application/json
+
+###
+
+POST localhost:8080/api/v1/address/
+Content-Type: application/json
+
+{
+  "id": 10,
+  "country": "Austria",
+  "city": "Salzburg",
+  "street": "Hauptstraße",
+  "streetNumber": 5,
+  "ssn": "314159"
+}
+
+
+###
+
+GET localhost:8080/api/v1/address/cities
+Accept: application/json
+###

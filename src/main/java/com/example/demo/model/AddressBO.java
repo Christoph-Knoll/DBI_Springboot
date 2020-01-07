@@ -20,7 +20,7 @@ public class AddressBO extends RootBO<Address>{
         return new AddressBO(ad);
     }
 
-    public int getId() {
+    public Integer getId() {
         return this.state.getId();
     }
 

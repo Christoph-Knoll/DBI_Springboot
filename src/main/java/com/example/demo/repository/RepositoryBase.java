@@ -16,4 +16,8 @@ public abstract class RepositoryBase<T extends EntityBase> {
     protected void persist (RootBO<T> object){
         this.entityManager.persist(object.getState());
     }
+
+    protected void merge (RootBO<T> object){
+        this.entityManager.merge(object.getState());
+    }
 }

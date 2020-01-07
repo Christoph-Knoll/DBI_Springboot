@@ -3,7 +3,7 @@ package com.example.demo.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AddressDTO {
-    private Integer addressNo;
+    private Integer id;
     private String SSN;
     private String country;
     private String city;
@@ -12,14 +12,14 @@ public class AddressDTO {
 
     public AddressDTO(){}
 
-    public AddressDTO(@JsonProperty("addressNo") Integer addressNO,
+    public AddressDTO(@JsonProperty("id") Integer id,
                       @JsonProperty("SSN") String SSN,
                       @JsonProperty("country") String country,
                       @JsonProperty("city") String city,
                       @JsonProperty("street") String street,
                       @JsonProperty("streetNumber") Integer streetNumber){
 
-        this.addressNo = addressNO;
+        this.id = id;
         this.SSN = SSN;
         this.country = country;
         this.city = city;
@@ -27,12 +27,12 @@ public class AddressDTO {
         this.streetNumber = streetNumber;
     }
 
-    public Integer getAddressNo() {
-        return addressNo;
+    public Integer getId() {
+        return id;
     }
 
-    public void setAddressNo(Integer addressNo) {
-        this.addressNo = addressNo;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getCountry() {
